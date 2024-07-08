@@ -1,0 +1,93 @@
+<html>
+<head>
+ <style>
+    .main{
+
+    }
+    .menu{
+        align-items: center;
+        width: 25vw;
+        height: 100vh;
+        
+        border-right-style: solid;
+        display:flex;
+        flex-direction: column;
+    }
+    .menu-item{
+        width: 50%;
+        text-align: center;
+        font-size: 30px;
+        padding: 30px;
+        font-weight: lighter;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+    }
+    #menu-home{
+        font-size: 50px;
+    }
+    .main{
+        display: flex;
+        flex-direction: row;
+    }
+    .game{
+        background-color: darkcyan;
+        width: 75vw;
+        height: 100vh;
+    }
+    #the-box-container{
+        display: flex;
+        background-color: aqua;
+        margin-left: 25%;
+        margin-top: 5%;
+        height: 600px;
+        width: 600px;
+       
+    }
+    #the-box{
+        margin-top: 150px;
+        margin-left: 150px;
+        height: 300px;
+        width: 300px;
+        background-color: blue;
+    }
+ </style>
+</head>
+<body>
+<div class="main">
+<div class="menu">
+    <div id="menu-home">HOME</div>
+    <div class="menu-item" id="menu-goals">Goals</div>
+    <div class="menu-item" id="menu-tasks">Tasks</div>
+    <div class="menu-item" id="menu-stats">Stats</div>
+    <div class="menu-item" id="menu-settings">Settings</div>
+</div>
+<div class="game">
+    <div id="full-meter">fullness: 100%</div>
+    <div id="love-meter">love: 0</div>
+    <div id="the-box-container"><div id="the-box"></div></div>
+</div>
+</div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) =>{
+        let timeRemaining = 100;
+        let boxSize = 300;
+
+        function updateFullness(){
+            if(timeRemaining > 0){
+            timeRemaining--;
+            boxSize = boxSize + 3;
+            document.getElementById("full-meter").textContent = ("fullness: " + boxSize + "px");
+            document.getElementById("the-box").style.height = boxSize + "px";
+            document.getElementById("the-box").style.width= boxSize + "px";
+            document.getElementById("the-box").style.marginTop = (600 - boxSize)/2 + "px";
+            document.getElementById("the-box").style.marginLeft = (600 - boxSize)/2 + "px";
+            }else{
+                clearInterval(fullnessInterval);
+            }
+        }
+        const fullnessInterval = setInterval(updateFullness, 100);
+
+    });
+</script>
+</html>
