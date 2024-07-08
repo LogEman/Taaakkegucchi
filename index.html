@@ -77,7 +77,7 @@
             if(timeRemaining > 0){
             timeRemaining--;
             boxSize = boxSize + 3;
-            document.getElementById("full-meter").textContent = ("fullness: " + boxSize + "px");
+            document.getElementById("full-meter").textContent = ("fullness: " + timeRemaining + "%");
             document.getElementById("the-box").style.height = boxSize + "px";
             document.getElementById("the-box").style.width= boxSize + "px";
             document.getElementById("the-box").style.marginTop = (600 - boxSize)/2 + "px";
